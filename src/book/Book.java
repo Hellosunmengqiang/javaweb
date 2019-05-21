@@ -7,7 +7,7 @@ public class Book {
 	private int bookcount;
 	private String author;
 	private String tel;
-	private String where;
+	private String outwhere;
 	/**
 	 * @return id
 	 */
@@ -83,14 +83,14 @@ public class Book {
 	/**
 	 * @return tel
 	 */
-	public String getWhere() {
-		return where;
+	public String getOutwhere() {
+		return outwhere;
 	}
 	/**
 	 * @param tel ÒªÉèÖÃµÄ tel
 	 */
-	public void setWhere(String where) {
-		this.where = where;
+	public void setOutwhere(String outwhere) {
+		this.outwhere = outwhere;
 	}
 	
 

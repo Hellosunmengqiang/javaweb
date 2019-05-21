@@ -53,7 +53,7 @@ public class SelectAll extends HttpServlet {
 	    		book.setBookcount(rs.getInt("bookcount"));
 	    		book.setAuthor(rs.getString("author"));
 	    		book.setTel(rs.getString("tel"));
-	    		book.setWhere(rs.getString("where"));
+	    		book.setOutwhere(rs.getString("outwhere"));
 	    		
 	    		list.add(book);
 	    	}

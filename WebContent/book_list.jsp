@@ -11,8 +11,7 @@
     
         .q{
         width:1140px;
-        background: green;
-       
+        
         }
        .q .q1{
          font-size: 18px;
@@ -28,8 +27,8 @@
     </style>
 </head>
 <body>
-   <div class="q">
-   <table  border="1" class="q1" >
+   <div class="q" align="center">
+   <table  border="1" class="q1" align="center">
        <tr align="center">
        <td  colspan="10">
        <h2 >图书管理信息</h2>
@@ -65,7 +64,7 @@
         		<td align="center"><%=book.getBookcount() %></td>
         		<td align="center"><%=book.getAuthor() %></td>
         		<td align="center"><%=book.getTel() %></td>
-        		<td align="center"><%=book.getWhere() %></td>
+        		<td align="center"><%=book.getOutwhere() %></td>
         		<td>
         		 <form action="Updateservlet" method="post">
         		     <input type="hidden" name="name" value="<%=book.getName()%>">

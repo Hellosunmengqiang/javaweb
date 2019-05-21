@@ -38,9 +38,9 @@ public class Addbook extends HttpServlet {
 		
 		try{
         	Class.forName("com.mysql.jdbc.Driver");
-			Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/books"	, "root","root");
+			Connection conn= DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "root","root");
 			
-			String sql="insert into book(name,price,bookcount,author,tel,where) values(?,?,?,?,?,?)";
+			String sql="insert into book(name,price,bookcount,author,tel,outwhere) values(?,?,?,?,?,?)";
 			
 			PreparedStatement ps=(PreparedStatement) conn.prepareStatement(sql);
 		    
@@ -50,7 +50,7 @@ public class Addbook extends HttpServlet {
 			ps.setInt(3, book.getBookcount());
 			ps.setString(4,book.getAuthor());
 			ps.setString(5,book.getTel());
-			ps.setString(6,book.getWhere());
+			ps.setString(6,book.getOutwhere());
 			
 			int row=ps.executeUpdate();//更新操作
 			if(row>0)
@@ -58,8 +58,7 @@ public class Addbook extends HttpServlet {
 				System.out.print("成功添加了"+row+"条数据!");
 				
 			}
-			else
-				System.out.println("添加失败！");
+			
 			ps.close();
 			conn.close();
 			
@@ -69,10 +68,12 @@ public class Addbook extends HttpServlet {
     {
     	System.out.print("图书信息添加失败！");
     	e.printStackTrace();
-    } catch (ClassNotFoundException e) {
-		// TODO 自动生成的 catch 块
-		e.printStackTrace();
-	}
+    }
+	 catch(Exception e)
+	   {
+	    	System.out.print("添加失败！");
+	    	e.printStackTrace();
+	    }
 		 request.getRequestDispatcher("searchbook.html").forward(request, response);
 	}
 
