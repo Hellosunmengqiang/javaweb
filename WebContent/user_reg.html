@@ -70,13 +70,9 @@
     	 }return true;
     	 
      }
-     function Chemail(str)
-     {
-    	 return
-    	 str.search(/[\w\-]{1,}@[\w\-]{1,}\.[\w\-]{1,}/)==0?true:false;
-     }
      function Docheck()
      {
+    	 var re = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
     	 if(reg.username.value=="")
     	 {
     		 alert("请填写用户名！");
@@ -108,11 +104,11 @@
     			 alert("请填写邮箱");
     			 return false;
     			 }
-       // else if(Chemail(reg.email.value))
-    		//{
-    		// alert("请填写有效的邮箱");
-    		 //return false;
-    		 //}
+       else if(!re.test(reg.email.value))
+    		{
+    		 alert("请填写有效的邮箱");
+    		 return false;
+    		 }
     	else{
     		 return true;
     		 }

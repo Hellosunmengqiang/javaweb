@@ -50,7 +50,7 @@ public class µÇÂ¼ extends HttpServlet {
 					{
 						
 						request.getRequestDispatcher("login.html").forward(request,response);
-					System.out.println("ÕËºÅ»òÃÜÂë´íÎó£¡");
+					    System.out.println("ÕËºÅ»òÃÜÂë´íÎó£¡");
 					}
 					rs.close();
 					st.close();

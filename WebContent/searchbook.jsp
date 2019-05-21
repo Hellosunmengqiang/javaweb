@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%request.setCharacterEncoding("UTF-8");response.setCharacterEncoding("UTF-8"); %>
+    <%request.setCharacterEncoding("UTF-8"); response.setContentType("text/html;charset:utf-8"); %>
     <%@page import="java.sql.*" %>
     <jsp:useBean id="book" class="book.Book"></jsp:useBean>
     <jsp:setProperty property="*" name="book"/>
