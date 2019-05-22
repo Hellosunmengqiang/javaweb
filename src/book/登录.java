@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.Statement;
 
@@ -29,9 +30,10 @@ public class µÇÂ¼ extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 	    response.setContentType("text/html;charset:utf-8");
-		
+		//String s_rand=(String)session.getAttribute("rand");
 		String s_username = request.getParameter("username");
 		String s_password = request.getParameter("password");
+		
 		   String sql="";
 		     try{
 		    	 Class.forName("com.mysql.jdbc.Driver");
@@ -40,8 +42,11 @@ public class µÇÂ¼ extends HttpServlet {
 					
 				sql="select * from users where username like '"+s_username+"' and password like '"+s_password+"'";
 					ResultSet rs=st.executeQuery(sql);
-					if(rs.next())
-					{
+					if(rs.next())	
+					{   HttpSession session=request.getSession(); 
+					
+						session.setAttribute("username", s_username);
+						session.setAttribute("password", s_password);
 						
 						request.getRequestDispatcher("searchbook.jsp").forward(request,response);
 						

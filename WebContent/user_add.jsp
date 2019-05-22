@@ -34,9 +34,11 @@
 			}
 			else
 			{
+				HttpSession se=request.getSession();
 				
 				String s_password=request.getParameter("password");
 				String s_nickname=request.getParameter("nickname");
+				se.setAttribute("nickname", s_nickname);
 				String s_sex=request.getParameter("sex");
 				String s_email=request.getParameter("email");
 				//out.print(s_sex);

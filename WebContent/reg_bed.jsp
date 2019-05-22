@@ -24,6 +24,11 @@
 <body>
             <h2 align="center">用户名已经存在，请重新注册！</h2>
            <p align="center"> <a href="user_reg.html" style="center">点击注册</a></p>
+           <%
+           String ss=(String)session.getAttribute("rand");
+           
+           %>
+          <p> <%=ss %></p>
       
 </body>
 </html>

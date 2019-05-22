@@ -13,7 +13,7 @@
 	background-image: url('../img/背景1.jpg');
 }
 .logo_box{
-	width: 500px;
+	width: 400px;
 	height: 500px;
 	padding: 35px;
 	color: #EEE;
@@ -88,6 +88,7 @@
 }
 /*///*/
 .mb2{
+	/* border: 1px solid red; */
 	margin-bottom: 20px
 }
 .mb2 a{
@@ -95,11 +96,15 @@
 	outline: none;
 }
 .submit {
-	padding: 15px;
+	width: 150px;
+    /* border: 1px solid red; */
+	padding: 8px;
 	margin-top: 20px;
+	margin-left: 10px;
 	display: block;
 }
 .act-but{
+	/* border: 2px solid black; */
 	float:left;
 	line-height: 20px;
 	text-align: center;

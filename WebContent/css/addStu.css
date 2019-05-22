@@ -9,9 +9,6 @@ div{
 	display: block;
 }
 
-body{
-	height: 450px;
-}
 
 body a{
 	outline: 0;
@@ -42,31 +39,28 @@ a{
 }
 
 .target{
-	width: 30%;;
-	height: 65%;;
-/*	border: 1px solid black;*/
+	width: 60%;;
+	height: 65%;
+	border: 1px solid black;
 /*	margin-left: 450px;*/
    margin-top: 5px;
-padding-top: 10px;
+   padding-top: 10px;
 	margin: 0 auto;
 }
 
 .target .target-1{
+	width: 55%;
+	height: 360px;
+	border: 1px solid yellow;
 	text-align: center;
+	margin: 0 auto;
 }
 
 .target-1 form{
-	border: 1px solid black;
+	background-color: skyblue;
+	border: 1px	solid black;
 }
 
-.target-1 .tk{
-	background-color:#BBD1B0;
-	display: block;
-	height: 35px;
-	padding-top:8px;
-	color: green;
-	margin-bottom: 10px;
-}
 
 .target-1 p{
 	font-size: 18px;
@@ -83,56 +77,31 @@ padding-top: 10px;
 
 
 .target-1 .target-2{
+	outline: none;
 	width: 180px;
 	height: 30px;
-	border: 1px solid black;
-	margin-bottom: 8px;
 	border-radius: 10px;
+	border: 1px solid black;
+	margin-top: 10px;
 }
 
 .target-3{
-	margin-left: 30px;
-	width: 120px;
-	height: 40px;
-	border-radius: 15px;
+	outline: none;
+	margin-left: 25px;
+	width: 65px;
+	height: 25px;
+	line-height: 20px;
+	border-radius: 10px;
 	font-size: 14px;
-	font-weight: bolder;
+	font-weight: bold;
 	cursor: pointer;
-	margin-bottom: 10px;
+	margin-top: -30px;
+	background-color: aqua;
 }
 
 .target-3:hover{
-	background-color: #ff6700;
 	color: #fff;
 }
-
-
-.D{
-	width: 100%;
-	height: 60px;
-	border: 1px solid black;
-	margin-top: 180px;
-}
-
-.D ul{
-	margin-left: 100px;
-/*	text-align: center;*/
-}
-
-.D ul li{
-	float: left;
-	list-style-type: none;
-	margin-left: 5%;
-	text-align: center;
-/*	vertical-align: middle;*/
-	height: 60px;
-	line-height: 60px;
-}
-
-.D a:hover{
-	color: #FF6700;
-}
-
 
 .target-1 .nac{
     display: inline-block;

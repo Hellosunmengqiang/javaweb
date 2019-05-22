@@ -47,6 +47,7 @@
       <th style="width:200px;">备注3</th>
        </tr>
      <%
+     
         List<Book> list=(List<Book>)request.getAttribute("list");
         if(list==null||list.size()<1)
         {

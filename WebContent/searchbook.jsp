@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
     <%request.setCharacterEncoding("UTF-8"); response.setContentType("text/html;charset:utf-8"); %>
-    <%@page import="java.sql.*" %>
+    <%@page import="java.sql.*,java.util.*" %>
     <jsp:useBean id="book" class="book.Book"></jsp:useBean>
     <jsp:setProperty property="*" name="book"/>
 <html>
@@ -24,7 +24,9 @@ a{
 ul {
     list-style: none;
 }
-
+.header{
+border:1px solid black;
+}
 .header .header-title{
 	width: 100%;
 	background-repeat: no-repeat;
@@ -116,7 +118,6 @@ ul {
    </style>
 </head>
 <body>
-<div>
     <%
         try{
         	Class.forName("com.mysql.jdbc.Driver");
@@ -137,7 +138,7 @@ ul {
 			int row=ps.executeUpdate();//更新操作
 			if(row>0)
 			{
-				out.print("成功添加了"+row+"条数据!");
+				out.append("成功添加了"+row+"条数据!");
 				
 			}
 			ps.close();
@@ -147,11 +148,10 @@ ul {
    
     catch(SQLException e)
     {
-    	out.print("图书信息添加失败！");
-    	e.printStackTrace();
+    	   System.out.print("图书信息添加失败！");
+    	   e.printStackTrace();
     }
     %>
-    <body>
         <div class="header">
                 <img src="img/tsglm_r1_c1.png" alt="安徽科技学院" title="安徽科技学院" class="header-title">
           </div>
@@ -166,9 +166,19 @@ ul {
  <div class="nav-1">
      <div class="nav-2">
        <ul>
-           <li><a href='user_reg.html'>重新注册</a></li>
+           <li><a href='exit.jsp'>注销</a></li>
            <li><a href='login.html'>重新登录</a></li>
-           <li><a href='addbook.html'>添加书籍</a></li>
+           <li><a href='Addbook.jsp'>添加书籍</a></li>
+           
+           <%
+              String username=(String)session.getAttribute("username");
+              String password=(String)session.getAttribute("password");
+              
+           %>
+           
+          <li>名字是：<%=username %></li>
+          <li>密码是：<%=password %></li>
+          
        </ul>
     </div>
     <div class="nav-3">
