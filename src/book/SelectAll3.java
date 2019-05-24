@@ -3,6 +3,7 @@ package book;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,12 +14,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-@WebServlet("/SelectAll")
-public class SelectAll extends HttpServlet {
+@WebServlet("/SelectAll3")
+public class SelectAll3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public SelectAll() {
+    public SelectAll3() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,16 +34,24 @@ public class SelectAll extends HttpServlet {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
 	    response.setContentType("text/html;charset:utf-8");
-	    
+	    String name=(String)request.getParameter("name");
+	    String price=(String)request.getParameter("price");
+	   
+	    HttpSession ses=request.getSession();
+	    ses.setAttribute("price", price); ses.setAttribute("name", name);
 	    try {
 	    	Class.forName("com.mysql.jdbc.Driver");
 	    	Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/books", "root", "root");
 	    	
-	    	String sql="SELECT * FROM book";
+	    	String sql="SELECT * FROM book where name=?";
 	    	
-	    	Statement st=conn.createStatement();
-	    	ResultSet rs=st.executeQuery(sql);
-	    	//在对象st中执行给定的sql语句，该语句返回单个resultset对象
+	    	PreparedStatement ps=conn.prepareStatement(sql);
+	    	ps.setString(1, name);
+	    	ResultSet rs=ps.executeQuery();
+	    	//在此preparedstatement对象中(ps)执行sql语句
+	    	//并返回该查询生成的resultset对象
+	    	
+	    	//Resultset接口用于保存JDBC执行查询时返回的结果集
 	    	List<Book> list=new ArrayList<Book>(); 
 	    	int i=1;
 	    	while(rs.next())
@@ -62,8 +72,9 @@ public class SelectAll extends HttpServlet {
 	    	
 	    	rs.close();
 	    	conn.close();
-	    	st.close();
-	    } 
+	    	ps.close();
+	    }
+	    
 	    catch (SQLException e) {
 			
 			e.printStackTrace();
@@ -71,7 +82,8 @@ public class SelectAll extends HttpServlet {
 			
 			e.printStackTrace();
 		}
-	    request.getRequestDispatcher("list_book.jsp").forward(request, response);
+	    //System.out.println("已购买！");
+	    request.getRequestDispatcher("list_book3.jsp").forward(request, response);
 	
 	}
 

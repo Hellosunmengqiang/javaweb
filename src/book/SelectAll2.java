@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/SelectAll")
-public class SelectAll extends HttpServlet {
+@WebServlet("/SelectAll2")
+public class SelectAll2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public SelectAll() {
+    public SelectAll2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -71,7 +71,7 @@ public class SelectAll extends HttpServlet {
 			
 			e.printStackTrace();
 		}
-	    request.getRequestDispatcher("list_book.jsp").forward(request, response);
+	    request.getRequestDispatcher("list_book2.jsp").forward(request, response);
 	
 	}
 

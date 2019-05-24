@@ -48,7 +48,7 @@ public class µÇÂ¼ extends HttpServlet {
 						session.setAttribute("username", s_username);
 						session.setAttribute("password", s_password);
 						
-						request.getRequestDispatcher("searchbook.jsp").forward(request,response);
+						request.getRequestDispatcher("search.jsp").forward(request,response);
 						
 					}
 					else

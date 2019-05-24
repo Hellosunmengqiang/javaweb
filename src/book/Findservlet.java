@@ -76,7 +76,7 @@ public class Findservlet extends HttpServlet {
 			
 			e.printStackTrace();
 		}
-	    request.getRequestDispatcher("book_list.jsp").forward(request, response);
+	    request.getRequestDispatcher("list_book.jsp").forward(request, response);
 	
 	}
 

@@ -10,13 +10,14 @@
 </head>
 <body>
 
+
 	<%
    		session.removeAttribute("username");
 	    session.removeAttribute("password");
 	    session.removeAttribute("nickname");
+	    session.removeAttribute("price");
    		response.sendRedirect("login.html");
     %>
-
 
 </body>
 </html>

@@ -143,17 +143,17 @@ h1{
         </div>
         <div class="target-1">
             <ul>
-                <li><a href="www.baidu.com">目录</a></li>
-                <li><a href="www.baidu.com">目录</a></li>
-                <li><a href="www.baidu.com">目录</a></li>
-                <li><a href="www.baidu.com">目录</a></li>
+                <li><a href="FirstHome.html">主页</a></li>
+                <li><a href="SelectAll2">管理</a></li>
+                <li><a href="exit.jsp">注销</a></li>
+                <li><a href="SelectAll3">清单</a></li>
                 <li><a href="#">目录</a></li>
             </ul>
            
         </div>
     <div class="form" style="position:relative">
         <div class="form_register" style="position:absolute">  
-            <form action="searchbook.jsp" method="POST">
+            <form action="search.jsp" method="POST">
                 <h1>添加书籍</h1>
                 <div class="form_item">
                     <label for="name">图书名称：</label>

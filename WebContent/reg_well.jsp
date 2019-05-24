@@ -7,7 +7,7 @@
 <head>
 <style type="text/css">
      body{
-         background: url("img/七匹马.jpg") no-repeat center/cover;
+         background: url("img/well.jpg") no-repeat center/cover;
       }
       
       a{
