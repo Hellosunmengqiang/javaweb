@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+div{
+	display: block;
+}
+
+
+body a{
+	outline: 0;
+}
+
+a{
+	text-decoration: none;
+	color: #666;
+   cursor: pointer;
+}
+
+.header .header-title{
+	width: 100%;
+	background-repeat: no-repeat;
+}
+
+.tips-security{
+	width: 100%;
+	padding: 7px 0;
+	margin-top: -10px;
+	line-height: 16px;
+	background: #fffcd8;
+	font-family: 'Microsoft yahei';
+	font-size:12px;
+	color: #666;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.target{
+	width: 60%;;
+	height: 65%;
+	border: 1px solid black;
+/*	margin-left: 450px;*/
+   margin-top: 5px;
+   padding-top: 10px;
+	margin: 0 auto;
+}
+
+.target .target-1{
+	width: 55%;
+	height: 360px;
+	border: 1px solid yellow;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.target-1 form{
+	background-color: skyblue;
+	border: 1px	solid black;
+}
+
+
+.target-1 p{
+	font-size: 18px;
+	font-weight: bold;
+	letter-spacing: 6px;
+}
+
+.target-1 i{
+	font-style: normal;
+	font-size: 16px;
+	letter-spacing: 3px;
+	font-weight: 300px;
+}
+
+
+.target-1 .target-2{
+	outline: none;
+	width: 180px;
+	height: 30px;
+	border-radius: 10px;
+	border: 1px solid black;
+	margin-top: 10px;
+}
+
+.target-3{
+	outline: none;
+	margin-left: 25px;
+	width: 65px;
+	height: 25px;
+	line-height: 20px;
+	border-radius: 10px;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	margin-top: -30px;
+	background-color: aqua;
+}
+
+.target-3:hover{
+	color: #fff;
+}
+
+.target-1 .nac{
+    display: inline-block;
+    margin-left: 10px;
+}

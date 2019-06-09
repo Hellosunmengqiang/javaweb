@@ -4,6 +4,7 @@
     <%@page import="java.sql.*" %>
 <html>
 <title>用户注册成功</title>
+<link rel="icon" type="img/x-icon" href="img/favicon.ico">
 <head>
 <style type="text/css">
      body{

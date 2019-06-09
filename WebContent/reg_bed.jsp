@@ -3,7 +3,8 @@
     <%request.setCharacterEncoding("UTF-8");response.setCharacterEncoding("UTF-8"); %>
     <%@page import="java.sql.*" %>
 <html>
-<title>用户注册成功</title>
+<title>用户注册失败</title>
+<link rel="icon" type="img/x-icon" href="img/favicon.ico">
 <head>
 <style type="text/css">
      body{
@@ -28,7 +29,7 @@
            String ss=(String)session.getAttribute("rand");
            
            %>
-          <p> <%=ss %></p>
+         
       
 </body>
 </html>

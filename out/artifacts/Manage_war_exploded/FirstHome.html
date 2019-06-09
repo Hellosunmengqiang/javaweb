@@ -1,0 +1,578 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>天河图书馆</title>
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+  <!-- Bootstrap -->
+  <link href="http://www.czslib.com/static/www/chuzhou/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://www.czslib.com/static/www/chuzhou/css/plugin/swiper.min.css" rel="stylesheet">
+
+  <link href="http://www.czslib.com/static/www/chuzhou/css/common.css" rel="stylesheet">
+  <link href="http://www.czslib.com/static/www/chuzhou/css/index.css" rel="stylesheet">
+  <link href="http://www.czslib.com/static/www/chuzhou/css/plugin/swiper.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div>
+  <!--------------------------------- 顶部通用区域  以下开始复制-------------------------------------->
+
+  <div class="top">
+<!-- logo 区域 -->
+<script src="http://www.czslib.com/static/www/chuzhou/js/jquery.min.js"></script>
+<div class="top" style="background-image: url(https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=847624102,1587616294&fm=15&gp=0.jpg);background-position: center center;">
+    <div class="container clearfix top-main">
+        <!-- <img src="http://www.czslib.com/static/www/chuzhou/images/logo.png" class="logo fl"> -->
+        <div class="fr top-r">
+            <div class="search fl">
+                <div id="lsearch">
+                    <div class="hbox">
+                        <span class="select">站内检索</span>
+                    </div>
+                    <ul class="sub">
+                        <i class="triangle"></i>
+                        <li>站内检索</li>
+                        <li>馆藏检索</li>
+                    </ul>
+                    <span class="hline">|</span>
+                </div>
+
+              <form action="Findservlet" method="post">
+                <input type="text" name="name" class="s-input" placeholder="关键字">
+                <span class="s-text tabSearch" id="sbtn"><i class="icon ico-search"></i><input type="submit"  value="搜索" style="background-color:black;color:#fff;"></span>
+            </form></div>
+            <div class="top-text fr">
+                <a href="user_reg.html"><i class="icon ico-mine"></i>注册</a>
+                <a href="SelectAll"><i class="icon ico-cloud"></i>我的图书</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+ 
+    search();
+    function search() {
+        var text = $('.select').html();
+        if (text == "站内检索") {
+            console.log("aa");
+            $("#sbtn").on("click", function () {
+                var seaval = $(".s-input").val();
+                console.log('cc',seaval)
+                seaval = $.trim(seaval);
+                if(seaval == '') {
+                    alert('关键字不能为空');
+                    return false;
+                }else{
+                    window.location.href = "/html/1/search?keyword=" + encodeURI(seaval) +
+                        "&p=1";
+
+                }
+
+            });
+        } else if (text == "馆藏检索") {
+            $("#sbtn").on("click", function () {
+                var seaval = $(".s-input").val();
+                window.location.href = "https://dsczslib.libsp.com/#/resource/search/" + encodeURI(seaval);
+            });
+
+        }
+    }
+    // 模拟select
+    window.onload = function () {
+        var oSelect = document.getElementsByTagName("span")[0];
+        var oSub = document.getElementsByTagName("ul")[0];
+        var aLi = oSub.getElementsByTagName("li");
+        var i = 0;
+
+        oSelect.onclick = function (event) {
+            var style = oSub.style;
+            style.display = style.display == "block" ? "none" : "block";
+            //阻止事件冒泡
+            (event || window.event).cancelBubble = true
+        };
+
+        for (i = 0; i < aLi.length; i++) {
+            //鼠标划过
+            aLi[i].onmouseover = function () {
+                this.className = "hover"
+            };
+            //鼠标离开
+            aLi[i].onmouseout = function () {
+                this.className = "";
+            };
+            //鼠标点击
+            aLi[i].onclick = function () {
+                oSelect.innerHTML = this.innerHTML;
+                search();
+            }
+        }
+
+        document.onclick = function () {
+            oSub.style.display = "none";
+        };
+    };
+
+</script>  <div id="left-flyout-nav" class="layout-left-flyout visible-sm"></div>
+  <div class="layout-right-content">
+    <header class="the-header">
+      <div class="navbar container">
+
+        <!-- Trigger -->
+        <a class="btn-navbar btn-navbar-navtoggle btn-flyout-trigger" href="#">
+          <span class="icon-bar btn-flyout-trigger"></span>
+          <span class="icon-bar btn-flyout-trigger"></span>
+          <span class="icon-bar btn-flyout-trigger"></span>
+        </a>
+
+        <!-- Structure -->
+        <nav class="the-nav nav-collapse clearfix">
+          <ul class="nav nav-pill pull-left">
+            <li class="dropdown">
+              <a href="#" class="list-item">首页</a>
+            </li>
+            <li class="dropdown">
+              <!--判断当前栏目是否包含子栏目，如果有的话就遍历输出子栏目-->
+              <a href="#" class="list-item">图书资讯 <b class="caret"></b></a>
+              <ul class="subnav">
+                <li>
+                  <a href="#">通知公告</a>
+                </li>
+                <li>
+                  <a href="#">本馆动态</a>
+                </li>
+                <li>
+                  <a href="#">媒体报道</a>
+                </li>
+                <li>
+                  <a href="#">文明创建</a>
+                </li>
+                <li>
+                  <a href="#">政府公开信息</a>
+                </li>
+                <li>
+                  <a href="#">《安全生产法》宣传专栏</a>
+                </li>
+          </ul>
+          </li>
+            <li class="dropdown">
+              <!--判断当前栏目是否包含子栏目，如果有的话就遍历输出子栏目-->
+              <a href="#" class="list-item">读者活动 <b class="caret"></b></a>
+              <ul class="subnav">
+                <li>
+                  <a href="#">主题活动</a>
+                </li>
+                <li>
+                  <a href="#">专家讲座</a>
+                </li>
+                <li>
+                  <a href="#">在线展览</a>
+                </li>
+          </ul>
+          </li>
+            <li class="dropdown">
+              <!--判断当前栏目是否包含子栏目，如果有的话就遍历输出子栏目-->
+              <a href="#" class="list-item">空间预约 <b class="caret"></b></a>
+              <ul class="subnav">
+                <li>
+                  <a href="#">自习室预约</a>
+                </li>
+                <li>
+                  <a href="#">数字体验区预约</a>
+                </li>
+          </ul>
+          </li>
+            <li class="dropdown">
+              <!--判断当前栏目是否包含子栏目，如果有的话就遍历输出子栏目-->
+              <a href="#" class="list-item">数字文化 <b class="caret"></b></a>
+              <ul class="subnav">
+                <li>
+                  <a href="#">自建库</a>
+                </li>
+                <li>
+                  <a href="#">特色资源</a>
+                </li>
+                <li>
+                  <a href="#">数据库</a>
+                </li>
+                <li>
+                  <a href="#">试用库</a>
+                </li>
+          </ul>
+          </li>
+            <li class="dropdown">
+              <!--判断当前栏目是否包含子栏目，如果有的话就遍历输出子栏目-->
+              <a href="#" class="list-item">阅读推荐 <b class="caret"></b></a>
+              <ul class="subnav" style="margin-right:100px;">
+                <li>
+                  <a href="#">新书推荐</a>
+                </li>
+                <li>
+                  <a href="#">外借排行</a>
+                </li>
+                <li>
+                  <a href="#">专家推荐</a>
+                </li>
+                <li>
+                  <a href="#">全民点书</a>
+                </li>
+          </ul>
+          </li>
+            <li class="dropdown">
+              <!--判断当前栏目是否包含子栏目，如果有的话就遍历输出子栏目-->
+              <a href="#" class="list-item">服务指南 <b class="caret"></b></a>
+              <ul class="subnav">
+                <li>
+                  <a href="#">关于本馆</a>
+                </li>
+                <li>
+                  <a href="#">入馆须知</a>
+                </li>
+              
+                <li>
+                  <a href="#">开放时间</a>
+                </li>
+                <li>
+                  <a href="#">借阅规则</a>
+                </li>
+                <li>
+                  <a href="#">电话服务</a>
+                </li>
+                
+                <li>
+                  <a href="#">参考咨询</a>
+                </li>
+          </ul>
+          </li>
+        </ul>
+        </nav>
+      </div>
+    </header>
+    <!-- 轮播 -->
+    <div class="container mb15 banner">
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item">
+            <a target="_blank" href=""></a>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 本馆动态 文明创建 -->
+  <div class="container clearfix mb15">
+    <div class="box column-l fl">
+      <div class="tit clearfix">
+        <a href="javscript:void(0);" class="tit-l fl jsTab active" data-type="1">本馆动态</a>
+        <a href="#" class="more fr" id="more-one">+MORE</a>
+        <a href="#" class="more fr" id="more-two">+MORE</a>
+      </div>
+      <div class="box-con first">
+        <ul>
+          <li>
+            <a href="#" class="clearfix">
+              <img src="http://czslib.com/res/9e101c83d4e54cb49c320ba42e4cd34c.jpg" class="fl">
+              <div class="fl con-text ">
+                <p class="text-top ellipsis">安徽科技学院莅临 天河图书馆...</p>
+                <div class="text-bd ellipsismore">
+                  计算机系大佬莅临 天河图书馆参观指导
+                </div>
+                <div class="tr c999 f12">
+                  2019-04-21
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="clearfix">
+              <img src="http://czslib.com/res/371cc90c4ba14fb89b7906e0d8415075.jpg" class="fl">
+              <div class="fl con-text ">
+                <p class="text-top ellipsis">天河图书馆积极推进全明读书</p>
+                <div class="text-bd ellipsismore">
+                  天河图书馆积极推进读书伴我行活动
+                </div>
+                <div class="tr c999 f12">
+                  2019-03-27
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="clearfix">
+              <img src="http://czslib.com/res/7c7f22c23f8c40058fe51cf5fef1237d.jpg" class="fl">
+              <div class="fl con-text ">
+                <p class="text-top ellipsis">天河图书馆开展诗词大赛...</p>
+                <div class="text-bd ellipsismore">
+                  天河图书馆开展诗词大赛
+                </div>
+                <div class="tr c999 f12">
+                  2019-03-10
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+     
+    </div>
+    <div class="box column-m fl">
+      <!-- 轮播 -->
+      <div id="carousel-example-generic1" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic1"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <div class="item">
+            <a href="#" class="clearfix">
+              <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1558606148583&di=8e983d0758b87694117724ff4c4698ad&imgtype=0&src=http%3A%2F%2Fwww.pptbz.com%2Fpptpic%2Fuploadfiles_6909%2F201205%2F2012050920581219.jpg" class="fl">
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box column-r fr">
+    <div class="tit clearfix">
+      <span class="tit-l fl">通知公告</span>
+      <a href="#" class="more fr">+MORE</a>
+    </div>
+    <div class="box-con">
+      <li>
+        <a href="#" class="clearfix">
+          <div class="fl con-text">
+            <p class="text-top ellipsis">本馆新增书籍种类</p>
+            <div class="c999">
+              2019-02-01
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="clearfix">
+          <div class="fl con-text">
+            <p class="text-top ellipsis">积极开展打击卖假书活动...</p>
+            <div class="c999">
+              2018-12-18
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="clearfix">
+          <div class="fl con-text">
+            <p class="text-top ellipsis"> 天河图书馆未来几年走向</p>
+            <div class="c999">
+              2018-11-30
+            </div>
+          </div>
+        </a>
+      </li>
+  </div>
+</div>
+</div>
+
+<!-- 栏目 -->
+<div class="container">
+  <div class="menu">
+    <ul class="clearfix">
+      <li><a href="#"><img src="http://www.czslib.com/static/www/chuzhou/images/item1.png"></a></li>
+      <li><a href="#"><img src="http://www.czslib.com/static/www/chuzhou/images/item2.png"></a></li>
+      <li><a href="#"><img src="http://www.czslib.com/static/www/chuzhou/images/item3.png"></a></li>
+      <li><a href="#"><img src="http://www.czslib.com/static/www/chuzhou/images/item4.png"></a></li>
+      <li><a href="#"><img src="http://www.czslib.com/static/www/chuzhou/images/item5.png"></a></li>
+      <li><a href="#" target="_blank"><img src="http://www.czslib.com/static/www/chuzhou/images/item6.png"></a></li>
+      <li><a href="#"><img src="http://www.czslib.com/static/www/chuzhou/images/item7.png"></a></li>
+      <li><a href="#"><img src="http://www.czslib.com/static/www/chuzhou/images/item8.png"></a></li>
+    </ul>
+  </div>
+</div>
+
+
+<!-- 新书推荐 -->
+<div class="container mb15">
+  <div class="box">
+    <div class="tit clearfix">
+      <span class="tit-l fl">新书推荐</span>
+      <a href="#" class="more fr">+MORE</a>
+    </div>
+    <div class="box-con">
+
+      <div class="picbox">
+        <span class="prev"></span>
+        <dl id="roll">
+          <dd><a HREF="#" target="_blank">
+            <img src="http://czslib.com/res/e90ddb4e648a4d6a9b76b71498abd0b6.jpg">
+            <p class="item-tit tc ellipsistwo">岛上书店</p>
+          </a></dd>
+          <dd><a HREF="#" target="_blank">
+            <img src="http://czslib.com/res/227679a7cd374f64a0988eb72e112b10.jpg">
+            <p class="item-tit tc ellipsistwo">抱怨的艺术</p>
+          </a></dd>
+          <dd><a HREF="#" target="_blank">
+            <img src="http://czslib.com/res/43bbf26d09fc4d28b7b71861b54e2777.jpg">
+            <p class="item-tit tc ellipsistwo">查理九世1-26（共26册）</p>
+          </a></dd>
+          <dd><a HREF="#" target="_blank">
+            <img src="http://112.28.77.190/res/ede6526161894db1b31b5daf87148882.jpg">
+            <p class="item-tit tc ellipsistwo">《人类群星闪耀时》</p>
+          </a></dd>
+          <dd><a HREF="#" target="_blank">
+            <img src="http://112.28.77.190/res/6eb1b0cb99ca40b08adbacd415a8e322.jpg">
+            <p class="item-tit tc ellipsistwo">《静守百年》</p>
+          </a></dd>
+          <dd><a HREF="#" target="_blank">
+            <img src="http://112.28.77.190/res/c72c7de7a8c94cf59f8ec165b0043006.jpg">
+            <p class="item-tit tc ellipsistwo">《童年》</p>
+          </a></dd>
+          <dd><a HREF="#" target="_blank">
+            <img src="http://112.28.77.190/res/258a1b9bba6340d78d3b3fbc43d0acfc.jpg">
+            <p class="item-tit tc ellipsistwo">《城南旧事》</p>
+          </a></dd>
+        </dl>
+        <span class="next"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mb30">
+  <!-- 活动预告 -->
+  
+
+
+
+</div>
+
+<!--------------------------------- 底部通用区域  以下开始复制-------------------------------------->
+<!-- 底部 -->
+<div class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="foot-item">
+          <div class="item-tit">
+            <span class="tit-text">关注我们</span>
+          </div>
+          <div class="official">
+            <div class="official-img"> <img src="http://112.28.77.190/res/705ed0e47e064cc49e7f7dbc32559479.png"> </div>
+            <!--<div class="official-text">官方微信</div>-->
+          </div>
+          <div class="official">
+            <div class="official-img"> <img src="http://112.28.77.190/res/fdcc02c207a041b18e998f81bf854d48.png"> </div>
+            <!--<div class="official-text">支付宝服务号</div>-->
+          </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="foot-item">
+        <div class="item-tit"><span class="tit-text">友情链接</span></div>
+        <div class="item-list">
+          <ul>
+            <li><a target="_blank"  href="http://www.ahwh.gov.cn/">安徽省文化厅</a></li>
+            <li><a target="_blank"  href="http://www.nlc.cn/">国家图书馆</a></li>
+            <li><a target="_blank"  href="http://www.ndlib.cn/">数字图书推广工程</a></li>
+            <li><a target="_blank"  href="http://www.ndcnc.gov.cn/">全国文化信息资源共享工程</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="foot-item">
+        <div class="item-tit"><span class="tit-text">联系我们</span></div>
+        <div class="item-list">
+          <ul>
+            <li>咨询服务：0550-123456</li>
+            <li>读者交流QQ群号：742655967</li>
+            <li>技术支持：安徽科技学院计算机系</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--------------------------------- 底部通用区域  结束-------------------------------------->
+
+
+</div>
+</div>
+
+<script src="http://www.czslib.com/static/www/chuzhou/js/jquery.min.js"></script>
+<script src="http://www.czslib.com/static/www/chuzhou/js/bootstrap.min.js"></script>
+<script src="http://www.czslib.com/static/www/chuzhou/js/plugin/swiper.min.js"></script>
+<script src="http://www.czslib.com/static/www/chuzhou/js/common.js"></script>
+<script src="http://www.czslib.com/static/www/chuzhou/js/index.js"></script>
+<script src="http://www.czslib.com/static/www/chuzhou/js/zturn.js"></script>
+<script src="http://www.czslib.com/static/www/chuzhou/js/zzsc.js"></script>
+<script src="http://www.czslib.com/static/www/chuzhou/js/jquery.cbFlyout.js"></script>
+<script>
+    var aa = new zturn({
+        id: "zturn",
+        opacity: 0.4,
+        width: 250,
+        Awidth: 240,
+        scale: 0.8,
+        auto: true, //是否轮播 默认5000
+        turning: 3000 //轮播时长
+    })
+
+
+    $(function () {
+        $(".item").each(function () {
+            if ($(this).index() == 0) {
+                $(this).addClass('active')
+            }
+        });
+        $(" .carousel-indicators li").each(function () {
+            $(this).attr('data-slide-to', $(this).index())
+            if ($(this).index() == 0) {
+                $(this).addClass('active')
+            }
+        });
+    })
+
+    var flag = 0;
+    startAutoPlay();
+
+    function startAutoPlay() {
+        timer = setInterval(function () {
+            flag++;
+            if (flag > 2) {
+                flag = 0;
+            }
+            changeText();
+        }, 3000);
+    }
+
+    function changeText() {
+        for (var i = 0; i < $(".acswiper-slide").length; i++) {
+            $(".acswiper-slide")[i].style.display = "none";
+        }
+        $(".acswiper-slide")[flag].style.display = "block";
+    }
+    $(document).ready(function(){
+        $('.the-nav').cbFlyout();
+    });
+</script>
+
+
+</body>
+
+</html>

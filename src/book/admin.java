@@ -14,14 +14,14 @@ import javax.servlet.http.HttpSession;
 
 import com.mysql.jdbc.Statement;
 
-@WebServlet("/µÇÂ¼")
-public class µÇÂ¼ extends HttpServlet {
+@WebServlet("/admin")
+public class admin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public µÇÂ¼() {
+    public admin() {
         super();
         // TODO Auto-generated constructor stub
     }

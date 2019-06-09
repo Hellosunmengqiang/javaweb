@@ -7,7 +7,8 @@
 <html>
 <head>
     
-    <title>Document</title>	
+    <title>Document</title>
+    <link rel="icon" type="img/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" href="css/add.css">
     <style>
         html{
@@ -165,7 +166,7 @@ h1{
                 </div>
                 <div class="form_item">
                     <label for="acounts">数量：</label>
-                    <input type="text" name="email" id="email" placeholder="请输入数量" required>
+                    <input type="text" name="bookcount" id="bookcount" placeholder="请输入数量" required>
                 </div>
                 <div class="form_item">
                     <label for="author">作者：</label>

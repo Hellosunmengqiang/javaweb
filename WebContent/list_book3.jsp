@@ -6,6 +6,7 @@
       response.setCharacterEncoding("UTF-8"); %>
 <html>
 <title>所有信息</title>
+<link rel="icon" type="img/x-icon" href="img/favicon.ico">
 <head>
      <style type="text/css">
      body{

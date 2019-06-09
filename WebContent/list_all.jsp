@@ -4,6 +4,7 @@
     <%@page import="java.sql.*" %><%@page import="java.util.*" %>
 <html>
 <title>用户注册成功</title>
+<link rel="icon" type="img/x-icon" href="img/favicon.ico">
 <head>
 <link rel="stylesheet" type="text/css" href="http://www.czslib.com/static/www/chuzhou/css/bootstrap.min.css">
 

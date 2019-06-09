@@ -6,6 +6,7 @@
       response.setCharacterEncoding("UTF-8"); %>
 <html>
 <title>所有信息</title>
+<link rel="icon" type="img/x-icon" href="img/favicon.ico">
 <head>
      <style type="text/css">
      body{
@@ -69,7 +70,7 @@
 <div id="box" style="border:1px solid black;">
 <div class="nav">
     <a href="FirstHome.html" style="font-size:22px;color:orange;">首页</a>
-     <a href="exit.html" style="font-size:22px;color:orange;">注销</a>
+     <a href="exit.jsp" style="font-size:22px;color:orange;">注销</a>
     <a href="search.jsp" style="font-size:22px;color:orange;">查询</a>
      <a href="SelectAll3" style="font-size:22px;color:orange;">清单</a>
      <a href="##" style="font-size:22px;color:orange;">目录</a>

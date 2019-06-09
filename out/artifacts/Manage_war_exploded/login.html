@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+<script type="text/javascript">
+       function as()
+        { 
+    	   if(document.getElementById("username").value=="")//form1.name.value==""
+		   {
+			   alert("用户名不能为空");
+			 return false;
+			  
+			   }
+    	   else if(document.getElementById("password").value=="")
+			   {
+			   alert("密码不能为空！");
+			 return false;
+			   }
+    	   else if(document.getElementById("t1").value=="")
+		   {
+		   alert("验证码不能为空！");
+		 return false;
+		   }
+    	   else 
+    		   return true;
+        }
+    </script>
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="css/demo.css" />
+<!--必要样式-->
+<link rel="stylesheet" type="text/css" href="css/component.css" />
+<!--[if IE]>
+<script src="js/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+		<div class="container demo-1">
+			<div class="content">
+				<div id="large-header" class="large-header">
+					<canvas id="demo-canvas"></canvas>
+					<div class="logo_box">
+						<h3>欢迎您</h3>
+						<form action="admin" name="" method="post">
+							<div class="input_outer">
+								<span class="u_user"></span>
+								<input name="username" id="username" class="text" style="color: #FFFFFF !important" type="text" placeholder="请输入账户">
+							</div>
+							<div class="input_outer">
+								<span class="us_uer"></span>
+								<input name="password" id="password" class="text" style="color: #FFFFFF !important; position:absolute; z-index:100;"value="" type="password" placeholder="请输入密码">
+							</div>
+							<div class="input">
+								<input id="t1" type="text" name="u" placeholder="请输入验证码" onblur="but()" style="width: 150px;margin-left:10px; height:38px;border-radius:10px;opacity:0.4;outline:none;border: rgba(255,255,255,0.2) 2px solid !important;"/>
+								<span id="discode" style="font-size:20px;"></span>
+								<input type="button" value="换一换" class="c" style="height:30px;width:80px;opacity: 0.4;margin-left:10px;background:#EEE;"onClick="createCode()">
+							</div>
+							<div class="mb2"><input class="act-but submit" type="submit" style="color: #FFFFFF;float:left; border:0;" value="登录"  onclick="return as(this.form)"> 
+							<!-- <input type="reset" value="重置" class="act-but submit" style="color: #FFFFFF;float:left;"> -->
+							<a href="user_reg.html" class="act-but submit" style="color: #FFFFFF;float:left; border:0;">注册</a></div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div><!-- /container -->
+		<script src="js/TweenLite.min.js"></script>
+		<script src="js/EasePack.min.js"></script>
+		<script src="js/rAF.js"></script>
+		<script src="js/demo-1.js"></script>
+		<script language="javascript">
+			var code; //在全局 定义验证码
+			function createCode()
+			{ //创建验证码函数
+			 code = "";
+			 var codeLength =4;//验证码的长度
+			 var selectChar = new Array(0,1,2,3,4,5,6,7,8,9,'a','b','c','d','e','f','g','h','i','j','k',
+				'l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');//所有候选组成验证码的字符，当然也可以用中文的
+			 for(var i=0;i<codeLength;i++)
+			 { 
+			 var charIndex =Math.floor(Math.random()*36);
+			 code +=selectChar[charIndex]; 
+			 }
+			// 设置验证码的显示样式，并显示
+			 document.getElementById("discode").style.fontFamily="Fixedsys"; //设置字体
+			 document.getElementById("discode").style.letterSpacing="5px"; //字体间距
+			 document.getElementById("discode").style.color="#0ab000"; //字体颜色
+			 document.getElementById("discode").innerHTML=code; // 显示
+			}
+			function but()
+			{//验证验证码输入是否正确
+			 var val1=document.getElementById("t1").value;
+			 var val2=code;
+			 if(val1!=val2){
+				alert("验证码错误!");
+			 document.getElementById('t1').value="";
+				}
+			 }
+			</script>
+	</body>
+</html>

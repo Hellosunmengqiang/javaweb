@@ -6,6 +6,7 @@
     <jsp:setProperty property="*" name="book"/>
 <html>
 <title>用户注册</title>
+<link rel="icon" type="img/x-icon" href="img/favicon.ico">
 <head>
 <script>
      

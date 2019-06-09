@@ -8,7 +8,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Insert title here</title>
-   
+    <link rel="icon" type="img/x-icon" href="img/favicon.ico">
   
     <style>
     *{
@@ -236,7 +236,7 @@ ul {
     <br>
     <div class="nav-3">
             <form action="Findservlet" method="post" class="nav-4">
-                <span style="font-size:19">图书名称</span>:&nbsp;&nbsp;&nbsp;<input type="text" class="input" name="name" placeholder="请输入图书名称" onblur="isChinese(this.value)"/>
+                <span style="font-size:19">图书名称</span>:&nbsp;&nbsp;&nbsp;<input type="text" class="input" name="name" placeholder="请输入图书名称" />
                 <br><br>
                 <input type="submit" value="提交" class="nav-6" style="outline: none;"/>
             </form>
@@ -252,15 +252,6 @@ ul {
 </div>
 
 </div>
-<script language="javascript"> 
-    function isChinese(obj){ 
-    var reg=/^[\u0391-\uFFE5]+$/; 
-    if(obj!=""&&!reg.test(obj)){ 
-    alert('必须输入中文！');
-    return false; 
-    } 
-    }
-    
-    </script>
+
 </body>
 </html> 

@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>注册</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="css/style.css">
+	
+    <script src="js/form.js"></script>
+	
+</head>
+<body>
+
+    <div class="form" style="position:relative">
+		
+		<!--注册表单-->
+        <div class="form_register" style="position:absolute">  
+            <form name="reg" action="user_add.jsp" method="post" target="_self" >
+                <h1>注册页面</h1>
+                <div class="form_item">
+                    <label>用户名：</label>
+                    <input type="text" name="username" id="username" placeholder="请输入用户名" required >
+                </div>
+                <div class="form_item">
+                    <label for="password">密码：</label>
+                    <input type="password" name="password" id="password" placeholder="请输入密码" required>
+                </div>
+                <div class="form_item">
+                    <label for="cpassword">确认密码：</label>
+                    <input type="password" name="cpassword" id="cpassword" placeholder="请再次确认密码" required>
+                </div>
+                
+                
+                <div class="form_item">
+                    <label for="nickname">昵称：</label>
+                    <input type="text" name="nickname" id="nickname" placeholder="请输入昵称" required >
+                </div>
+                <div class="form_item">
+                    <label for="email">电子邮箱：</label>
+                    <input type="text" name="email" id="email" placeholder="请输入电子邮箱" required>
+                </div>
+                <div class="form_item">
+                    <input type="submit" value="注册" onclick="return Docheck(this.form)">
+                </div>
+            </form>
+            <div class="info">已有账号？点击<a href="login.html" class="switch login_Btn">登录</a></div>
+        </div>
+    </div>
+    <script type="text/JavaScript">
+     function  isDigit(cCheck)
+     {
+    	 return (('0'<=cCheck)&&(cCheck<='9'));
+     }
+     function isAipha(cCheck)
+     {
+    	 return ((('a'<=cCheck)&&(cCheck<='z'))||(('A'<=cCheck)&&(cCheck<='Z')));
+     }
+     function isValid()
+     {
+    	 var stname=reg.username.value;
+    	 for(i=0;i<stname.length;i++)
+    	{
+    		 cCheck=stname.charAt(i);
+    		 if(!(isDigit(cCheck)||isAipha(cCheck)))
+    			 {
+    			 return false;
+    			 
+    			 }
+    		 
+    	 }return true;
+    	 
+     }
+     function Docheck()
+     {
+    	 var re = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+    	 if(reg.username.value=="")
+    	 {
+    		 alert("请填写用户名！");
+    	    return false;
+    	 }
+    	 else if(!isValid())
+    	 {
+    		 alert("用户名只能是字母和数字");
+    		 return false;
+    		 
+         }
+    	 else if(reg.password.value=="")
+    		 {
+    		 alert("请填写密码");
+    		 return false;
+    		 }
+    	 else if(reg.password.value!=reg.cpassword.value)
+    		 {
+    		 alert("两次的密码不一样");
+    		 return false;
+    		 }
+    	 else if(reg.nickname.value=="")
+    		 {
+    		 alert("请填写昵称");
+    		 return false;
+    		 }
+    	 else if(reg.email.value=="")
+    			 {
+    			 alert("请填写邮箱");
+    			 return false;
+    			 }
+       else if(!re.test(reg.email.value))
+    		{
+    		 alert("请填写有效的邮箱");
+    		 return false;
+    		 }
+    	else{
+    		 return true;
+    		 }
+    	 
+     }
+
+</script>
+</body>
+</html>
